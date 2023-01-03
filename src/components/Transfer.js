@@ -35,6 +35,7 @@ const Transfer = () => {
                 data: '',
             },
         }, state.passphrase);
+        console.log(tx)
         let res;
         try {
             res = await client.transaction.send(tx);
@@ -42,14 +43,15 @@ const Transfer = () => {
             res = error;
         }
 
-        updateState({
+        updateState(e=>({
+            ...e,
             transaction: client.transaction.toJSON(tx),
             response: res,
-            address: '',
-            amount: '',
-            fee: '',
-            passphrase: '',
-        });
+            // address: '',
+            // amount: '',
+            // fee: '',
+            // passphrase: '',
+        }));
     };
 
     return (

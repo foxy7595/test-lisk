@@ -7,6 +7,9 @@ export const getClient = async () => {
     if (!clientCache) {
         clientCache = await apiClient.createWSClient(RPC_ENDPOINT);
     }
+
+	
+
     return clientCache;
 };
 
